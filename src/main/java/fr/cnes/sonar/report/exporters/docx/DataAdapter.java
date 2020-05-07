@@ -341,35 +341,35 @@ public final class DataAdapter {
                         case "VULNERABILITY":
                             switch(severity){
                                 case "MINOR":
-                                    String minor = "THIS IS VULNERABILITY MINOR";
+                                    String minor = "CRLF Injection or similar; remove terminations of lines such as ASCII /r or ASCII /n. Attackers could modify application data, compromising integrity and enabling the exploitation of other vulnerabilities such as XSS or Website defacement";
                                     item.add(type);
                                     item.add(severity);
                                     item.add(minor);
                                     item.add("0.5-1.9");
                                     break; 
                                 case "MAJOR":
-                                    String major = "THIS IS VULNERABILITY MAJOR";
+                                    String major = "When '='is used, could be interpreted as a formula, delivering in possible injections vulnerabilitys. Recommended to modify using methods. For example, if used as a comparation, use  either'.equals' or 'compareTo";
                                     item.add(type);
                                     item.add(severity);
                                     item.add(major);
                                     item.add("1.9-2.7");
                                     break;
                                 case "CRITICAL":
-                                    String critical = "THIS IS VULNERABILITY CRITICAL";
+                                    String critical = "Never accept a filename and its extension directly without having a whitelist filter, prevent from overwriting a file in case of having the same hash for both. Personal information could be in danger; consider saving the files in a database rather than on the filesystem. ";
                                     item.add(type);
                                     item.add(severity);
                                     item.add(critical);
                                     item.add("2.7-4.8");
                                     break;
                                 case "BLOCKER":
-                                    String blocker = "THIS IS VULNERABILITY BLOCKER";
+                                    String blocker = "High probability to impact the behavior of the application in production. Try ";
                                     item.add(type);
                                     item.add(severity);
                                     item.add(blocker);
                                     item.add("4.8-5.8");
                                     break;    
                                 case "INFO":
-                                    String info = "THIS IS VULNERABILITY INFO";
+                                    String info = "Low profile vulnerability. Shouldn't cause any trouble.";
                                     item.add(type);
                                     item.add(severity);
                                     item.add(info);
@@ -479,7 +479,7 @@ public final class DataAdapter {
                                     item.add("1.5-2.4");
                                     break;
                                 case "CRITICAL":
-                                    String critical = "Multiple choices: either refactor your code to avoid using reflection.Assume all input is malicious. Use an 'accept known good' input validation strategy, which consists in a list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules.";
+                                    String critical = "Multiple choices: either refactor your code to avoid using reflection. Assume all input is malicious. Use an 'accept known good' input validation strategy, which consists in a list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules.";
                                     item.add(type);
                                     item.add(severity);
                                     item.add(critical);
