@@ -68,7 +68,14 @@ public class DocXExporter implements IExporter {
     private static final String[] IMPROVEMENTS_HEADER = {StringManager.string("header.type"),
             StringManager.string("header.severity"),
             "Improvements",
-            "Base Score Metrics"};   
+            "Base Score Metrics"}; 
+
+
+    private static final String[] OWASP_HEADER = {StringManager.string("header.type"),
+            "hola",
+            "hola"}; 
+
+    private static final String OWASP_PLACEHOLDER = "$OWASP";
 
 
 
@@ -173,6 +180,10 @@ public class DocXExporter implements IExporter {
             final List<String> improvementsHeader = new ArrayList<>(Arrays.asList(IMPROVEMENTS_HEADER));
             final List<List<String>> improvements = DataAdapter.getImprovements(report);
             DocXTools.fillTable(document, improvementsHeader, improvements, IMPROVEMENTS_PLACEHOLDER);
+
+            final List<String> improvementsHeader2 = new ArrayList<>(Arrays.asList(OWASP_HEADER));
+            final List<List<String>> improvements2 = DataAdapter.getOwasp(report);
+            DocXTools.fillTable(document, improvementsHeader2, improvements2, OWASP_PLACEHOLDER);
 
 
 

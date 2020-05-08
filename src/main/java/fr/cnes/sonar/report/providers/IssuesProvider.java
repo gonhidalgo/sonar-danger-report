@@ -263,4 +263,78 @@ public class IssuesProvider extends AbstractDataProvider {
         // return list of facets
         return new ArrayList<>(Arrays.asList(tmp));
     }
+
+    public List<Facet> getOwaspTop10() throws BadSonarQubeRequestException, SonarQubeException {
+
+// results variable
+        final List<Facet> res = new ArrayList<>();
+
+        // stop condition
+        boolean goOn = true;
+        // flag when there are too many violation (> MAXIMUM_ISSUES_LIMIT)
+        boolean overflow = false;
+        // current page
+        int page = 1;
+
+        // temporary declared variable to contain data from ws
+        Facet [] issuesTemp;
+
+
+        // search all issues of the project
+        while(goOn) {
+            // get maximum number of results per page
+            final int maxPerPage = Integer.parseInt(getRequest(MAX_PER_PAGE_SONARQUBE));
+            // prepare the server to get all the issues
+            final String request = String.format(getRequest(GET_OWASP_REQUEST),
+                    getServer().getUrl(), getProjectKey(), maxPerPage, page, getBranch());
+            // perform the request to the server
+            final JsonObject jo = request(request);
+            // transform json to Issue and Rule objects
+            issuesTemp = (getGson().fromJson(jo.get(FACETS), Facet[].class));
+
+
+            // add them to the final result
+            res.addAll(Arrays.asList(issuesTemp));
+            // check next results' pages
+            int number = (jo.get(TOTAL).getAsInt());
+
+            // check overflow
+            if(number > MAXIMUM_ISSUES_LIMIT) {
+                number = MAXIMUM_ISSUES_LIMIT;
+                overflow = true;
+            }
+            goOn = page* maxPerPage < number;
+            page++;
+        }
+
+        // in case of overflow we log the problem
+        if(overflow) {
+            LOGGER.warning(StringManager.string(StringManager.ISSUES_OVERFLOW_MSG));
+        }
+
+        // return the issues
+        return res;
+
+      
+
+
+
+
+
+
+        // final String request = String.format(getRequest(GET_OWASP_REQUEST),
+        //     getServer().getUrl(), getProjectKey(), getBranch());
+
+        // // contact the server to request the resources as json
+        // final JsonObject jo = request(request);
+        // // put wanted resources in facets array and list
+        // final Facet [] tmp = (getGson().fromJson(jo.get(FACETS), Facet[].class));
+
+        // // return list of facets
+        // return new ArrayList<>(Arrays.asList(tmp));
+
+
+    }
 }
+
+

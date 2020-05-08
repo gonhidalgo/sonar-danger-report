@@ -80,8 +80,11 @@ public class MarkdownExporter implements IExporter {
             "Improvements",
             "Base Score Metrics"};   
 
+ private static final String[] OWASP_HEADER = {StringManager.string("header.type"),
+            "hola",
+            "hola"}; 
             
-
+    private static final String OWASP_PLACEHOLDER = "$OWASP";
 
 
 
@@ -156,6 +159,11 @@ public class MarkdownExporter implements IExporter {
             final List<List<String>> improvements = DataAdapter.getImprovements(report);
             final String improvementsTable = generateMDTable(improvementsHeader, improvements);      
             output = output.replace(IMPROVEMENTS_PLACEHOLDER, improvementsTable);
+
+            final List<String> improvementsHeader2 = new ArrayList<>(Arrays.asList(OWASP_HEADER));
+            final List<List<String>> improvements2 = DataAdapter.getOwasp(report);
+            final String improvementsTable2 = generateMDTable(improvementsHeader2, improvements2);      
+            output = output.replace(OWASP_PLACEHOLDER, improvementsTable2);
 
 
 

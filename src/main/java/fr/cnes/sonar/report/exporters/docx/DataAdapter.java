@@ -254,6 +254,10 @@ public final class DataAdapter {
     private static final String[] ISSUE_SEVERITIES = {
         "BLOCKER", "CRITICAL", "MAJOR", "MINOR", "INFO"
     };
+
+    private static final String[] OWASP = {"A1", "A2", "A3", "A4","A5","A6","A7","A8","A9","A10"};
+    
+
     /**
      * Field in json response for number of code lines per language
      */
@@ -314,6 +318,60 @@ public final class DataAdapter {
         }
 
         return results;
+    }
+
+    public static List<List<String>> getOwasp(Report report) {
+
+                // result to return
+        final List<List<String>> results = new ArrayList<>();
+
+        final String[] owasps = OWASP;
+
+        long nb = 0;
+        String prueba2 = "Hola";
+
+        for(String owasp : owasps) {
+
+                     
+            for(Issue issue : report.getIssues()) {
+                
+                nb++;
+                if(nb > 240){
+                   prueba2 = issue.getOwaspTop10(); 
+                }
+                
+                //String prueba2 = "Hola";
+            }
+            // we add it to the list
+            final List<String> item = new ArrayList<>();
+            item.add(owasp);
+            item.add(prueba2);
+            item.add(String.valueOf(nb));
+            // add the whole line to the results
+            results.add(item);
+        
+        }
+
+        return results;
+/*        // result to return
+        final List<List<String>> results = new ArrayList<>();
+        final String[] owasps = OWASP;
+         long nb = 0;
+
+        for(Issue issue : report.getOwasp()){
+            
+             
+        }
+
+        // we add it to the list
+        final List<String> item = new ArrayList<>();
+        item.add("prueba");
+        item.add("prueba2");
+        item.add(String.valueOf(nb));
+        // add the whole line to the results
+        results.add(item);
+        
+        return results;*/
     }
 
 

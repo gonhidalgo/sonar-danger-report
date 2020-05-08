@@ -126,6 +126,9 @@ public abstract class AbstractDataProvider {
      * Field to search in json to get issues
      */
     protected static final String ISSUES = "issues";
+
+    protected static final String OWASPTOP10 = "owaspTop10";
+    protected static final String GET_OWASP_REQUEST = "GET_OWASP_REQUEST";
     /**
      * Field to search in json to get the paging section
      */
