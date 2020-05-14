@@ -320,7 +320,7 @@ public final class DataAdapter {
         return results;
     }
 
-    public static List<List<String>> getOwasp(Report report) {
+    public static List<List<String>> getOwasps(Report report) {
 
                 // result to return
         final List<List<String>> results = new ArrayList<>();
@@ -337,7 +337,7 @@ public final class DataAdapter {
                 
                 nb++;
                 if(nb > 240){
-                   prueba2 = issue.getOwaspTop10(); 
+                   prueba2 = issue.getOwasp(); 
                 }
                 
                 //String prueba2 = "Hola";

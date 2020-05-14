@@ -32,7 +32,7 @@ public class Issue {
      */
     private String severity;
 
-    private String owaspTop10;
+
     /**
      * Key in SonarQube
      */
@@ -77,6 +77,7 @@ public class Issue {
      * Issue's programming language
      */
     private String language;
+    private String owasp;
     /**
      * Issue's comments
      */
@@ -92,13 +93,13 @@ public class Issue {
         this.component = "";
         this.rule = "";
         this.severity = "";
-        this.owaspTop10 = "";
         this.project = "";
         this.status = "";
         this.resolution = "";
         this.type = "";
         this.effort = "0";
         this.language = "";
+        this.owasp = "";
         this.comments = new Comment[0];
     }
 
@@ -114,7 +115,6 @@ public class Issue {
         stringBuilder.append(component).append(StringManager.TAB);
         stringBuilder.append(type).append(StringManager.TAB);
         stringBuilder.append(severity).append(StringManager.TAB);
-        stringBuilder.append(owaspTop10).append(StringManager.TAB);
         stringBuilder.append(message).append(StringManager.TAB);
         stringBuilder.append(line).append(StringManager.TAB);
         stringBuilder.append(status).append(StringManager.TAB);
@@ -156,18 +156,6 @@ public class Issue {
         this.severity = pSeverity;
     }
 
-
-    public String getOwaspTop10() {
-        return owaspTop10;
-    }
-
-    /**
-     * Setter for severity
-     * @param pSeverity value
-     */
-    public void setOwaspTop10(String pOwaspTop10) {
-        this.owaspTop10 = pOwaspTop10;
-    }
 
     /**
      * Getter for key
@@ -357,5 +345,17 @@ public class Issue {
         }
 
         return coms.toString();
+    }
+
+    public String getOwasp() {
+        return owasp;
+    }
+
+    /**
+     * Setter for severity
+     * @param pSeverity value
+     */
+    public void setOwasp(String pOwasp) {
+        this.owasp = pOwasp;
     }
 }

@@ -181,9 +181,9 @@ public class DocXExporter implements IExporter {
             final List<List<String>> improvements = DataAdapter.getImprovements(report);
             DocXTools.fillTable(document, improvementsHeader, improvements, IMPROVEMENTS_PLACEHOLDER);
 
-            final List<String> improvementsHeader2 = new ArrayList<>(Arrays.asList(OWASP_HEADER));
-            final List<List<String>> improvements2 = DataAdapter.getOwasp(report);
-            DocXTools.fillTable(document, improvementsHeader2, improvements2, OWASP_PLACEHOLDER);
+            final List<String> owaspHeader = new ArrayList<>(Arrays.asList(OWASP_HEADER));
+            final List<List<String>> owasps = DataAdapter.getOwasps(report);
+            DocXTools.fillTable(document, owaspHeader, owasps, OWASP_PLACEHOLDER);
 
 
 

@@ -119,8 +119,10 @@ public class IssuesProvider extends AbstractDataProvider {
             // transform json to Issue and Rule objects
             issuesTemp = (getGson().fromJson(jo.get(ISSUES), Issue[].class));
             rulesTemp = (getGson().fromJson(jo.get(RULES), Rule[].class));
+            //tagsTemp = (getGson().fromJson(jo.get(TAGS), Owasp[].class));
             // association of issues and languages
             setIssuesLanguage(issuesTemp, rulesTemp);
+            setIssuesOwasp(issuesTemp,rulesTemp);
             // add them to the final result
             res.addAll(Arrays.asList(issuesTemp));
             // check next results' pages
@@ -189,6 +191,44 @@ public class IssuesProvider extends AbstractDataProvider {
             rulesKey = issue.getRule();
             rulesLanguage = findLanguageOf(rulesKey, rules);
             issue.setLanguage(rulesLanguage);
+        }
+    }
+
+
+    private String findOwaspOf(String ruleKey, Rule[] rules) {
+        // stop condition for the main loop
+        boolean again = true;
+        // increment for browsing the array
+        int inc = 0;
+
+        // result to return
+        String owasp = "";
+
+        // we iterate on the array until we find the good key
+        while(again && inc < rules.length) {
+            if(ruleKey.equals(rules[inc].getKey())) {
+                again = false;
+                owasp = rules[inc].getLangName();
+            }
+            inc++;
+        }
+
+        return owasp;
+    }
+
+
+    private void setIssuesOwasp(Issue[] issues, Rule[] rules) {
+        // rule's key of an issue
+        String rulesKey;
+        // language of the previous rule's key
+        String rulesOwasp;
+
+        // for each issue we associate the corresponding programming language
+        // by browsing the rules array
+        for (Issue issue : issues) {
+            rulesKey = issue.getRule();
+            rulesOwasp = findOwaspOf(rulesKey, rules);
+            issue.setOwasp(rulesOwasp);
         }
     }
 
@@ -264,7 +304,7 @@ public class IssuesProvider extends AbstractDataProvider {
         return new ArrayList<>(Arrays.asList(tmp));
     }
 
-    public List<Facet> getOwaspTop10() throws BadSonarQubeRequestException, SonarQubeException {
+/*    public List<Facet> getOwaspTop10() throws BadSonarQubeRequestException, SonarQubeException {
 
 // results variable
         final List<Facet> res = new ArrayList<>();
@@ -317,7 +357,7 @@ public class IssuesProvider extends AbstractDataProvider {
 
       
 
-
+    }*/
 
 
 
@@ -334,7 +374,7 @@ public class IssuesProvider extends AbstractDataProvider {
         // return new ArrayList<>(Arrays.asList(tmp));
 
 
-    }
+    
 }
 
 

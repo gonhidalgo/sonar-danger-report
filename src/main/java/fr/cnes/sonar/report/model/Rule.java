@@ -62,6 +62,8 @@ public class Rule {
      */
     private String langName;
 
+    private String owasp;
+
     /**
      * Default constructor
      */
@@ -74,6 +76,7 @@ public class Rule {
         this.lang = "";
         this.status = "";
         this.langName = "";
+        this.owasp = "";
     }
 
     /**
@@ -235,5 +238,17 @@ public class Rule {
      */
     public void setLangName(final String pLangName) {
         this.langName = pLangName;
+    }
+
+    public String getOwasp() {
+        return owasp;
+    }
+
+    /**
+     * Setter for severity
+     * @param pSeverity value
+     */
+    public void setOwasp(String pOwasp) {
+        this.owasp = pOwasp;
     }
 }

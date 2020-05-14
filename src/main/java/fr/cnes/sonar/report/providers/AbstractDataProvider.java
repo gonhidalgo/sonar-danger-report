@@ -44,6 +44,10 @@ public abstract class AbstractDataProvider {
      *  Field to retrieve languages list.
      */
     protected static final String GET_LANGUAGES = "GET_LANGUAGES";
+    protected static final String GET_TAGS = "GET_TAGS";
+    protected static final String TAGS = "tags";
+    //protected static final String OWASPTOP10 = "owaspTop10";
+    //protected static final String GET_OWASP_REQUEST = "GET_OWASP_REQUEST";
     /**
      *  Name of the request for getting quality profiles' linked projects
      */
@@ -127,8 +131,7 @@ public abstract class AbstractDataProvider {
      */
     protected static final String ISSUES = "issues";
 
-    protected static final String OWASPTOP10 = "owaspTop10";
-    protected static final String GET_OWASP_REQUEST = "GET_OWASP_REQUEST";
+ 
     /**
      * Field to search in json to get the paging section
      */
