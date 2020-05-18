@@ -161,7 +161,7 @@ public class MarkdownExporter implements IExporter {
             output = output.replace(IMPROVEMENTS_PLACEHOLDER, improvementsTable);
 
             final List<String> owaspHeader = new ArrayList<>(Arrays.asList(OWASP_HEADER));
-            final List<List<String>> owasps = DataAdapter.getOwasps(report);
+            final List<List<String>> owasps = DataAdapter.getTagsDoc(report);
             final String owaspsTable = generateMDTable(owaspHeader, owasps);      
             output = output.replace(OWASP_PLACEHOLDER, owaspsTable);
 

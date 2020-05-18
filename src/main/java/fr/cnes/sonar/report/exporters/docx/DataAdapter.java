@@ -255,7 +255,7 @@ public final class DataAdapter {
         "BLOCKER", "CRITICAL", "MAJOR", "MINOR", "INFO"
     };
 
-    private static final String[] OWASP = {"A1", "A2", "A3", "A4","A5","A6","A7","A8","A9","A10"};
+    private static final String[] OWASP = {"cwe", "cert", "owasp-a1", "owasp-a7","unused","convention","brain-overload","owasp-a3","A9","A10"};
     
 
     /**
@@ -320,37 +320,61 @@ public final class DataAdapter {
         return results;
     }
 
-    public static List<List<String>> getOwasps(Report report) {
+    public static List<List<String>> getTagsDoc(Report report) {
 
                 // result to return
         final List<List<String>> results = new ArrayList<>();
 
-        final String[] owasps = OWASP;
+        final String[] tags = OWASP;
 
         long nb = 0;
         String prueba2 = "Hola";
+        // final List<String> listTags = new ArrayList<>();
+        String listTags = "ghjk";
+        String prueba1 = "Àdios";
 
-        for(String owasp : owasps) {
+        for(String tag1 : tags) {
+            //for(Tag tag : report.getTags()){
+            for(Issue tag : report.getIssues()){
+                /*String prueba1 = tag1;
+                if(tag.getOwasp().equals(tag1)){
+                    prueba1 = "cwe";
+                }*/
+                listTags = tag.getType();
+                //prueba1 = listTags(0);
+                //prueba1 = tag.getSeverity();
+                final List<String> item = new ArrayList<>();
+                item.add(tag1);
+                item.add("prueba");
+                item.add(prueba1);
+                item.add(listTags);
+                item.add(String.valueOf(nb));
+                // add the whole line to the results
+                results.add(item);
+            }
+        }
+
+/*        for(String tag : tags) {
 
                      
             for(Issue issue : report.getIssues()) {
                 
                 nb++;
                 if(nb > 240){
-                   prueba2 = issue.getOwasp(); 
+                   prueba2 = issue.getTag(); 
                 }
                 
                 //String prueba2 = "Hola";
             }
             // we add it to the list
             final List<String> item = new ArrayList<>();
-            item.add(owasp);
+            item.add(tag);
             item.add(prueba2);
             item.add(String.valueOf(nb));
             // add the whole line to the results
             results.add(item);
         
-        }
+        }*/
 
         return results;
 /*        // result to return

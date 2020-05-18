@@ -49,6 +49,7 @@ public class Report {
      * List of issues detected in the project
      */
     private List<Issue> issues;
+    private List<Tag> tags;
     /**
      * List of facets of the project
      */
@@ -88,6 +89,7 @@ public class Report {
         this.qualityProfiles = new ArrayList<>();
         this.qualityGate = new QualityGate();
         this.issues = new ArrayList<>();
+        this.tags = new ArrayList<>();
         this.unconfirmed = new ArrayList<>();
         this.facets = new ArrayList<>();
         this.measures = new ArrayList<>();
@@ -398,4 +400,17 @@ public class Report {
     public void setUnconfirmed(List<Issue> pIssues) {
         this.unconfirmed = new ArrayList<>(pIssues);
     }
+    
+    public List<Tag> getTags() {
+        return new ArrayList<>(tags);
+    }
+
+    /**
+     * Setter for unconfirmed
+     * @param pIssues value
+     */
+    public void setTags(List<Tag> pTags) {
+        this.tags = new ArrayList<>(pTags);
+    }
+
 }

@@ -122,7 +122,7 @@ public class IssuesProvider extends AbstractDataProvider {
             //tagsTemp = (getGson().fromJson(jo.get(TAGS), Owasp[].class));
             // association of issues and languages
             setIssuesLanguage(issuesTemp, rulesTemp);
-            setIssuesOwasp(issuesTemp,rulesTemp);
+            //setIssuesOwasp(issuesTemp,rulesTemp);
             // add them to the final result
             res.addAll(Arrays.asList(issuesTemp));
             // check next results' pages
@@ -195,42 +195,42 @@ public class IssuesProvider extends AbstractDataProvider {
     }
 
 
-    private String findOwaspOf(String ruleKey, Rule[] rules) {
-        // stop condition for the main loop
-        boolean again = true;
-        // increment for browsing the array
-        int inc = 0;
+    // private String findOwaspOf(String ruleKey, Rule[] rules) {
+    //     // stop condition for the main loop
+    //     boolean again = true;
+    //     // increment for browsing the array
+    //     int inc = 0;
 
-        // result to return
-        String owasp = "";
+    //     // result to return
+    //     String owasp = "";
 
-        // we iterate on the array until we find the good key
-        while(again && inc < rules.length) {
-            if(ruleKey.equals(rules[inc].getKey())) {
-                again = false;
-                owasp = rules[inc].getLangName();
-            }
-            inc++;
-        }
+    //     // we iterate on the array until we find the good key
+    //     while(again && inc < rules.length) {
+    //         if(ruleKey.equals(rules[inc].getKey())) {
+    //             again = false;
+    //             owasp = rules[inc].getLangName();
+    //         }
+    //         inc++;
+    //     }
 
-        return owasp;
-    }
+    //     return owasp;
+    // }
 
 
-    private void setIssuesOwasp(Issue[] issues, Rule[] rules) {
-        // rule's key of an issue
-        String rulesKey;
-        // language of the previous rule's key
-        String rulesOwasp;
+    // private void setIssuesOwasp(Issue[] issues, Rule[] rules) {
+    //     // rule's key of an issue
+    //     String rulesKey;
+    //     // language of the previous rule's key
+    //     String rulesOwasp;
 
-        // for each issue we associate the corresponding programming language
-        // by browsing the rules array
-        for (Issue issue : issues) {
-            rulesKey = issue.getRule();
-            rulesOwasp = findOwaspOf(rulesKey, rules);
-            issue.setOwasp(rulesOwasp);
-        }
-    }
+    //     // for each issue we associate the corresponding programming language
+    //     // by browsing the rules array
+    //     for (Issue issue : issues) {
+    //         rulesKey = issue.getRule();
+    //         rulesOwasp = findOwaspOf(rulesKey, rules);
+    //         issue.setOwasp(rulesOwasp);
+    //     }
+    // }
 
     /**
      * Get all the issues of a project in a raw format (map)
@@ -303,75 +303,6 @@ public class IssuesProvider extends AbstractDataProvider {
         // return list of facets
         return new ArrayList<>(Arrays.asList(tmp));
     }
-
-/*    public List<Facet> getOwaspTop10() throws BadSonarQubeRequestException, SonarQubeException {
-
-// results variable
-        final List<Facet> res = new ArrayList<>();
-
-        // stop condition
-        boolean goOn = true;
-        // flag when there are too many violation (> MAXIMUM_ISSUES_LIMIT)
-        boolean overflow = false;
-        // current page
-        int page = 1;
-
-        // temporary declared variable to contain data from ws
-        Facet [] issuesTemp;
-
-
-        // search all issues of the project
-        while(goOn) {
-            // get maximum number of results per page
-            final int maxPerPage = Integer.parseInt(getRequest(MAX_PER_PAGE_SONARQUBE));
-            // prepare the server to get all the issues
-            final String request = String.format(getRequest(GET_OWASP_REQUEST),
-                    getServer().getUrl(), getProjectKey(), maxPerPage, page, getBranch());
-            // perform the request to the server
-            final JsonObject jo = request(request);
-            // transform json to Issue and Rule objects
-            issuesTemp = (getGson().fromJson(jo.get(FACETS), Facet[].class));
-
-
-            // add them to the final result
-            res.addAll(Arrays.asList(issuesTemp));
-            // check next results' pages
-            int number = (jo.get(TOTAL).getAsInt());
-
-            // check overflow
-            if(number > MAXIMUM_ISSUES_LIMIT) {
-                number = MAXIMUM_ISSUES_LIMIT;
-                overflow = true;
-            }
-            goOn = page* maxPerPage < number;
-            page++;
-        }
-
-        // in case of overflow we log the problem
-        if(overflow) {
-            LOGGER.warning(StringManager.string(StringManager.ISSUES_OVERFLOW_MSG));
-        }
-
-        // return the issues
-        return res;
-
-      
-
-    }*/
-
-
-
-
-        // final String request = String.format(getRequest(GET_OWASP_REQUEST),
-        //     getServer().getUrl(), getProjectKey(), getBranch());
-
-        // // contact the server to request the resources as json
-        // final JsonObject jo = request(request);
-        // // put wanted resources in facets array and list
-        // final Facet [] tmp = (getGson().fromJson(jo.get(FACETS), Facet[].class));
-
-        // // return list of facets
-        // return new ArrayList<>(Arrays.asList(tmp));
 
 
     
