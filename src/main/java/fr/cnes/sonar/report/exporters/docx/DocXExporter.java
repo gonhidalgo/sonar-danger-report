@@ -71,9 +71,10 @@ public class DocXExporter implements IExporter {
             "Base Score Metrics"}; 
 
 
-    private static final String[] OWASP_HEADER = {StringManager.string("header.type"),
-            "hola",
-            "hola"}; 
+    private static final String[] OWASP_HEADER = {"SonarQube rule",
+            "Owasp Type",
+            "Owasp Description",
+            "Owasp Mitigation"};
 
     private static final String OWASP_PLACEHOLDER = "$OWASP";
 

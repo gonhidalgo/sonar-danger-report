@@ -22,6 +22,7 @@ import fr.cnes.sonar.report.utils.StringManager;
 
 import java.util.*;
 
+
 /**
  * Format resources in different structure to have an easier use
  */
@@ -255,7 +256,7 @@ public final class DataAdapter {
         "BLOCKER", "CRITICAL", "MAJOR", "MINOR", "INFO"
     };
 
-    private static final String[] OWASP = {"cwe", "cert", "owasp-a1", "owasp-a7","unused","convention","brain-overload","owasp-a3","A9","A10"};
+    private static final String[] OWASP = {"owasp-a1", "owasp-a2", "owasp-a3", "owasp-a4","owasp-a5","owasp-a6","owasp-a7","owasp-a8","owasp-a9","owasp-a10"};
     
 
     /**
@@ -324,78 +325,140 @@ public final class DataAdapter {
 
                 // result to return
         final List<List<String>> results = new ArrayList<>();
+        //final Rule rule = report.getRule();
 
         final String[] tags = OWASP;
+        //final String[] types = ISSUE_TYPES;
+        //final String[] severities = ISSUE_SEVERITIES;
 
-        long nb = 0;
-        String prueba2 = "Hola";
+        long nb1 = 0;
+        String tagName = "Esta vacio";
         // final List<String> listTags = new ArrayList<>();
-        String listTags = "ghjk";
-        String prueba1 = "Àdios";
-
-        for(String tag1 : tags) {
-            //for(Tag tag : report.getTags()){
-            for(Issue tag : report.getIssues()){
-                /*String prueba1 = tag1;
-                if(tag.getOwasp().equals(tag1)){
-                    prueba1 = "cwe";
-                }*/
-                listTags = tag.getType();
-                //prueba1 = listTags(0);
-                //prueba1 = tag.getSeverity();
-                final List<String> item = new ArrayList<>();
-                item.add(tag1);
-                item.add("prueba");
-                item.add(prueba1);
-                item.add(listTags);
-                item.add(String.valueOf(nb));
-                // add the whole line to the results
-                results.add(item);
-            }
-        }
-
-/*        for(String tag : tags) {
-
-                     
-            for(Issue issue : report.getIssues()) {
-                
-                nb++;
-                if(nb > 240){
-                   prueba2 = issue.getTag(); 
-                }
-                
-                //String prueba2 = "Hola";
-            }
-            // we add it to the list
-            final List<String> item = new ArrayList<>();
-            item.add(tag);
-            item.add(prueba2);
-            item.add(String.valueOf(nb));
-            // add the whole line to the results
-            results.add(item);
+        String issueName = "ghjk";
         
-        }*/
+
+       
+        //for(String tag1 : tags) {
+            //for(Tag tag : report.getTags()){
+            for(Issue issue : report.getIssues()){
+                //issueName = rule.getName();
+                for (String tag : issue.getTags()){
+                    final List<String> item = new ArrayList<>();
+                    switch(tag){
+                        case "owasp-a1":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Injection flaws are very prevalent, particularly in legacy code. Injection vulnerabilities are often found in SQL, LDAP, XPath, or NoSQL queries, OS commands, XML parsers, SMTP headers, expression languages, and ORM queries. Injection flaws are easy to discover when examining code. Scanners and fuzzers can help attackers find injection flaws.");
+                            item.add("Preventing injection requires keeping data separate from commands and queries. * The preferred option is to use a safe API, which avoids the use of the interpreter entirely or provides a parameterized interface, or migrate to use Object Relational Mapping Tools (ORMs). Note: Even when parameterized, stored procedures can still introduce SQL injection if PL/SQL or T-SQL concatenates queries and data, or executes hostile data with EXECUTE IMMEDIATE or exec(). * Use positive or “whitelist” server-side input validation. This is not a complete defense as many applications require special characters, such as text areas or APIs for mobile applications. * For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter. Note: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software. * Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.");
+                            results.add(item);
+                            break;
+                        case "owasp-a2":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp2");
+                            results.add(item);
+                            break;
+
+                        case "owasp-a3":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp3");
+                            results.add(item);
+                            break;
+                        case "owasp-a4":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp4 ");
+                            results.add(item);
+                            break;
+                        case "owasp-a5":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp 5");
+                            results.add(item);
+                            break;
+                        case "owasp-a6":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp6");
+                            results.add(item);
+                            break;
+                        case "owasp-a7":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp7");
+                            item.add("Aqui iria la mitigacion owasp7");
+                            results.add(item);
+                            break;
+                        case "owasp-a8":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp8");
+                            results.add(item);
+                            break;
+                        case "owasp-a9":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp9");
+                            results.add(item);
+                            break;
+                        case "owasp-a10":
+                            item.add(issue.getComponent());
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Aqui iria la explicación owasp1");
+                            item.add("Aqui iria la mitigacion owasp10");
+                            results.add(item);
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    
+/*                    default:
+                        String error = "No existe";
+                        item.add(issueName);
+                        item.add(tagName);
+                        item.add(error);
+                        results.add(item);
+                        break;
+                    
+                    }*/
+
+                    
+                    /*item.add(issueName);
+                    item.add(tagName);
+                    item.add("estonovale");
+                    results.add(item);*/
+                }
+
+            }
+        //}
+                
+          
+
+        //item.add(String.valueOf(nb));
+          
+
 
         return results;
-/*        // result to return
-        final List<List<String>> results = new ArrayList<>();
-        final String[] owasps = OWASP;
-         long nb = 0;
 
-        for(Issue issue : report.getOwasp()){
-            
-             
-        }
-
-        // we add it to the list
-        final List<String> item = new ArrayList<>();
-        item.add("prueba");
-        item.add("prueba2");
-        item.add(String.valueOf(nb));
-        // add the whole line to the results
-        results.add(item);
-        
-        return results;*/
     }
 
 

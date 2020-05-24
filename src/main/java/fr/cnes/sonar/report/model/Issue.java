@@ -78,6 +78,10 @@ public class Issue {
      */
     private String language;
     private String owasp;
+    private List<String> tags;
+    
+    private String hash;
+    //private String[] tags;
     /**
      * Issue's comments
      */
@@ -100,6 +104,10 @@ public class Issue {
         this.effort = "0";
         this.language = "";
         this.owasp = "";
+        this.hash = "";
+        //this.tags = "";
+        this.tags = new ArrayList<>();
+        //this.tags = new String[2];
         this.comments = new Comment[0];
     }
 
@@ -357,5 +365,33 @@ public class Issue {
      */
     public void setOwasp(String pOwasp) {
         this.owasp = pOwasp;
+    }
+
+
+    public ArrayList<String> getTags() {
+        return new ArrayList<>(tags);
+        //String[] tagPrueba = tags;
+        //return tags.clone();
+        //return tagPrueba;
+    }
+
+    /**
+     * Setter for severity
+     * @param pSeverity value
+     */
+    public void setTags(ArrayList<String> pTags) {
+        this.tags = pTags;
+    }
+
+        public String gethash() {
+        return hash;
+    }
+
+    /**
+     * Setter for severity
+     * @param pSeverity value
+     */
+    public void sethash(String phash) {
+        this.hash = phash;
     }
 }
