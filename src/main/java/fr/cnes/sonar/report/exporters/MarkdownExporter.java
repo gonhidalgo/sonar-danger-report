@@ -75,15 +75,15 @@ public class MarkdownExporter implements IExporter {
 
     private static final String IMPROVEMENTS_PLACEHOLDER = "$IMPROVEMENTS";
 
-    private static final String[] IMPROVEMENTS_HEADER = {StringManager.string("header.type"),
-            StringManager.string("header.severity"),
+    private static final String[] IMPROVEMENTS_HEADER = {"Owasp Type",
+            "Threat Agents / Attack Vectors",
             "Improvements",
             "Base Score Metrics"};   
 
-    private static final String[] OWASP_HEADER = {"SonarQube rule",
+    private static final String[] OWASP_HEADER = {"File",
             "Owasp Type",
-            "Owasp Description",
-            "Owasp Mitigation"}; 
+            "Security Weakness",
+            "Impacts"}; 
             
     private static final String OWASP_PLACEHOLDER = "$OWASP";
 

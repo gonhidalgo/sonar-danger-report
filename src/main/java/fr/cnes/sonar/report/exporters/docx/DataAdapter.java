@@ -331,99 +331,163 @@ public final class DataAdapter {
         //final String[] types = ISSUE_TYPES;
         //final String[] severities = ISSUE_SEVERITIES;
 
-        long nb1 = 0;
-        String tagName = "Esta vacio";
+        List<Integer> repeted = new ArrayList<>();
+        String tagName = "?";
         // final List<String> listTags = new ArrayList<>();
-        String issueName = "ghjk";
+        String issueName = "?";
         
-
-       
+        String filePassed = new String();
+               
         //for(String tag1 : tags) {
             //for(Tag tag : report.getTags()){
             for(Issue issue : report.getIssues()){
+
+
                 //issueName = rule.getName();
                 for (String tag : issue.getTags()){
                     final List<String> item = new ArrayList<>();
+
+
                     switch(tag){
                         case "owasp-a1":
+                            if(repeted.contains(1) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(1);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
                             item.add("Injection flaws are very prevalent, particularly in legacy code. Injection vulnerabilities are often found in SQL, LDAP, XPath, or NoSQL queries, OS commands, XML parsers, SMTP headers, expression languages, and ORM queries. Injection flaws are easy to discover when examining code. Scanners and fuzzers can help attackers find injection flaws.");
-                            item.add("Preventing injection requires keeping data separate from commands and queries. * The preferred option is to use a safe API, which avoids the use of the interpreter entirely or provides a parameterized interface, or migrate to use Object Relational Mapping Tools (ORMs). Note: Even when parameterized, stored procedures can still introduce SQL injection if PL/SQL or T-SQL concatenates queries and data, or executes hostile data with EXECUTE IMMEDIATE or exec(). * Use positive or “whitelist” server-side input validation. This is not a complete defense as many applications require special characters, such as text areas or APIs for mobile applications. * For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter. Note: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software. * Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.");
+                            item.add("Preventing injection requires keeping data separate from commands and queries. The preferred option is to use a safe API, which avoids the use of the interpreter entirely or provides a parameterized interface, or migrate to use Object Relational Mapping Tools (ORMs). Note: Even when parameterized, stored procedures can still introduce SQL injection if PL/SQL or T-SQL concatenates queries and data, or executes hostile data with EXECUTE IMMEDIATE or exec(). Use positive or “whitelist” server-side input validation. This is not a complete defense as many applications require special characters, such as text areas or APIs for mobile applications.  For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter. Note: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software.  Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.");
                             results.add(item);
                             break;
                         case "owasp-a2":
+                            if(repeted.contains(2) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(2);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp2");
+                            item.add("The prevalence of broken authentication is widespread due to the design and implementation of most identity and access controls. Session management is the bedrock of authentication and access controls, and is present in all stateful applications. Attackers can detect broken authentication using manual means and exploit them using automated tools with password lists and dictionary attacks.");
+                            item.add("Where possible, implement multi-factor authentication to prevent automated, credential stuffing, brute force, and stolen credential re-use attacks.  Do not ship or deploy with any default credentials, particularly for admin users.  Implement weak-password checks, such as testing new or changed passwords against a list of the top 10000 worst passwords.  Align password length, complexity and rotation policies with NIST 800-63 B’s guidelines in section 5.1.1 for Memorized Secrets or other modern, evidence based password policies. Ensure registration, credential recovery, and API pathways are hardened against account enumeration attacks by using the same messages for all outcomes.");
                             results.add(item);
                             break;
 
                         case "owasp-a3":
+                            if(repeted.contains(3) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(3);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp3");
+                            item.add("The most common flaw is simply not encrypting sensitive data. When crypto is employed, weak key generation and management, and weak algorithm, protocol and cipher usage is common, particularly for weak password hashing storage techniques. For data in transit, server side weaknesses are mainly easy to detect, but hard for data at rest.");
+                            item.add("Classify data processed, stored or transmitted by an application. Identify which data is sensitive according to privacy laws, regulatory requirements, or business needs. Apply controls as per the classification. Don’t store sensitive data unnecessarily. Discard it as soon as possible or use PCI DSS compliant tokenization or even truncation. Data that is not retained cannot be stolen. Make sure to encrypt all sensitive data at rest. Verify independently the effectiveness of configuration and settings.");
                             results.add(item);
                             break;
                         case "owasp-a4":
+                            if(repeted.contains(4) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(4);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp4 ");
+                            item.add("By default, many older XML processors allow specification of an external entity, a URI that is dereferenced and evaluated during XML processing. SAST tools can discover this issue by inspecting dependencies and configuration. DAST tools require additional manual steps to detect and exploit this issue. Manual testers need to be trained in how to test for XXE, as it not commonly tested as of 2017.");
+                            item.add("Whenever possible, use less complex data formats such as JSON, and avoiding serialization of sensitive data. Patch or upgrade all XML processors and libraries in use by the application or on the underlying operating system. Use dependency checkers. Update SOAP to SOAP 1.2 or higher. Implement positive (“whitelisting”) server-side input validation, filtering, or sanitization to prevent hostile data within XML documents, headers, or nodes.");
                             results.add(item);
                             break;
                         case "owasp-a5":
+                            if(repeted.contains(5) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(5);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp 5");
+                            item.add("Access control weaknesses are common due to the lack of automated detection, and lack of effective functional testing by application developers. Access control detection is not typically amenable to automated static or dynamic testing. Manual testing is the best way to detect missing or ineffective access control, including HTTP method (GET vs PUT, etc), controller, direct object references, etc.");
+                            item.add("Access control is only effective if enforced in trusted server-side code or server-less API, where the attacker cannot modify the access control check or metadata. Log access control failures, alert admins when appropriate (e.g. repeated failures). Rate limit API and controller access to minimize the harm from automated attack tooling. With the exception of public resources, deny by default.");
                             results.add(item);
                             break;
                         case "owasp-a6":
+                            if(repeted.contains(6) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(6);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp6");
+                            item.add("Security misconfiguration can happen at any level of an application stack, including the network services, platform, web server, application server, database, frameworks, custom code, and pre-installed virtual machines, containers, or storage. Automated scanners are useful for detecting misconfigurations, use of default accounts or configurations, unnecessary services, legacy options, etc.");
+                            item.add("Secure installation processes should be implemented, including: A repeatable hardening process that makes it fast and easy to deploy another environment that is properly locked down. Development, QA, and production environments should all be configured identically, with different credentials used in each environment. This process should be automated to minimize the effort required to setup a new secure environment. A minimal platform without any unnecessary features, components, documentation, and samples. Remove or do not install unused features and frameworks. A segmented application architecture that provides effective, secure separation between components or tenants, with segmentation, containerization, or cloud security groups (ACLs).");
                             results.add(item);
                             break;
                         case "owasp-a7":
+                            if(repeted.contains(7) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(7);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp7");
-                            item.add("Aqui iria la mitigacion owasp7");
+                            item.add("XSS is the second most prevalent issue in the OWASP Top 10, and is found in around two thirds of all applications. Automated tools can find some XSS problems automatically, particularly in mature technologies such as PHP, J2EE / JSP, and ASP.NET.");
+                            item.add("Preventing XSS requires separation of untrusted data from active browser content. This can be achieved by: Using frameworks that automatically escape XSS by design, such as the latest Ruby on Rails, React JS. Learn the limitations of each framework’s XSS protection and appropriately handle the use cases which are not covered. Enabling a Content Security Policy (CSP) as a defense-in-depth mitigating control against XSS. It is effective if no other vulnerabilities exist that would allow placing malicious code via local file includes (e.g. path traversal overwrites or vulnerable libraries from permitted content delivery networks).");
                             results.add(item);
                             break;
                         case "owasp-a8":
+                            if(repeted.contains(8) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(8);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp8");
+                            item.add("Some tools can discover deserialization flaws, but human assistance is frequently needed to validate the problem. It is expected that prevalence data for deserialization flaws will increase as tooling is developed to help identify and address it.");
+                            item.add("The only safe architectural pattern is not to accept serialized objects from untrusted sources or to use serialization mediums that only permit primitive data types. If that is not possible, consider one of more of the following: Implementing integrity checks such as digital signatures on any serialized objects to prevent hostile object creation or data tampering. Isolating and running code that deserializes in low privilege environments when possible. Monitoring deserialization, alerting if a user deserializes constantly.");
                             results.add(item);
                             break;
                         case "owasp-a9":
+                            if(repeted.contains(9) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(9);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp9");
+                            item.add("Prevalence of this issue is very widespread. Component-heavy development patterns can lead to development teams not even understanding which components they use in their application or API, much less keeping them up to date. Some scanners such as retire.js help in detection, but determining exploitability requires additional effort.");
+                            item.add("here should be a patch management process in place to: Remove unused dependencies, unnecessary features, components, files, and documentation. Only obtain components from official sources over secure links. Prefer signed packages to reduce the chance of including a modified, malicious component. Every organization must ensure that there is an ongoing plan for monitoring, triaging, and applying updates or configuration changes for the lifetime of the application or portfolio.");
                             results.add(item);
                             break;
                         case "owasp-a10":
+                            if(repeted.contains(10) && filePassed.equals(issue.getComponent())){
+                                break;
+                            }
+                            repeted.add(10);
+                            filePassed = issue.getComponent();
+
                             item.add(issue.getComponent());
                             //item.add(tag1);
                             item.add(tag);
-                            item.add("Aqui iria la explicación owasp1");
-                            item.add("Aqui iria la mitigacion owasp10");
+                            item.add("Exploitation of insufficient logging and monitoring is the bedrock of nearly every major incident. Attackers rely on the lack of monitoring and timely response to achieve their goals without being detected. One strategy for determining if you have sufficient monitoring is to examine the logs following penetration testing. The testers’ actions should be recorded sufficiently to understand what damages they may have inflicted.");
+                            item.add("Ensure all login, access control failures, and server-side input validation failures can be logged with sufficient user context to identify suspicious or malicious accounts, and held for sufficient time to allow delayed forensic analysis. Ensure that logs are generated in a format that can be easily consumed by a centralized log management solutions. Ensure high-value transactions have an audit trail with integrity controls to prevent tampering or deletion, such as append-only database tables or similar.");
                             results.add(item);
                             break;
                         default:
@@ -463,7 +527,7 @@ public final class DataAdapter {
 
 
     public static List<List<String>> getImprovements(Report report) {
-        // result to return
+
         final List<List<String>> results = new ArrayList<>();
 
         final String[] types = ISSUE_TYPES;
