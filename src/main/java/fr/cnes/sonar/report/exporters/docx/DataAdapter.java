@@ -360,12 +360,12 @@ public final class DataAdapter {
 
                     switch(tag){
                         case "owasp-a1": 
-                            Integer issueLine = Integer.valueOf(issue.getLine());
-                            Integer startLine = issueLine - 3;   
+                            Integer issueLine1 = Integer.valueOf(issue.getLine());
+                            Integer startLine1 = issueLine1 - 3;   
                             if(repeted.contains(1) && filePassed1.equals(issue.getComponent())){
-                                item.add(issue.getComponent() + "  startLine =" + startLine + "  " + "endline = "  + issueLine);
+                                item.add(issue.getComponent() + "  startLine =" + startLine1 + "  " + "endline = "  + issueLine1);
                                 item.add(tag);
-                                item.add("This kind issue has been already detected in another code's line. Therefore, it has already been explained ");
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
                                 results.add(item);
                                 break;
                             }
@@ -374,7 +374,7 @@ public final class DataAdapter {
                              
                             
 
-                            item.add(issue.getComponent() + "  startLine =" + startLine + "  " + "endline = "  + issueLine);
+                            item.add(issue.getComponent() + "  startLine =" + startLine1 + "  " + "endline = "  + issueLine1);
                             //item.add(tag1);
                             item.add(tag );
                             item.add("Injection flaws are very prevalent, particularly in legacy code. Injection vulnerabilities are often found in SQL, LDAP, XPath, or NoSQL queries, OS commands, XML parsers, SMTP headers, expression languages, and ORM queries. Injection flaws are easy to discover when examining code. Scanners and fuzzers can help attackers find injection flaws.");
@@ -382,13 +382,19 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a2":
+                            Integer issueLine2 = Integer.valueOf(issue.getLine());
+                            Integer startLine2 = issueLine2 - 3;   
                             if(repeted.contains(2) && filePassed2.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine2 + "  " + "endline = "  + issueLine2);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(2);
                             filePassed2 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine2 + "  " + "endline = "  + issueLine2);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("The prevalence of broken authentication is widespread due to the design and implementation of most identity and access controls. Session management is the bedrock of authentication and access controls, and is present in all stateful applications. Attackers can detect broken authentication using manual means and exploit them using automated tools with password lists and dictionary attacks.");
@@ -397,13 +403,19 @@ public final class DataAdapter {
                             break;
 
                         case "owasp-a3":
+                            Integer issueLine3 = Integer.valueOf(issue.getLine());
+                            Integer startLine3 = issueLine3 - 3;   
                             if(repeted.contains(3) && filePassed3.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine3 + "  " + "endline = "  + issueLine3);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(3);
                             filePassed3 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine3 + "  " + "endline = "  + issueLine3);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("The most common flaw is simply not encrypting sensitive data. When crypto is employed, weak key generation and management, and weak algorithm, protocol and cipher usage is common, particularly for weak password hashing storage techniques. For data in transit, server side weaknesses are mainly easy to detect, but hard for data at rest.");
@@ -411,13 +423,19 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a4":
+                            Integer issueLine4 = Integer.valueOf(issue.getLine());
+                            Integer startLine4 = issueLine4 - 3;   
                             if(repeted.contains(4) && filePassed4.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine4 + "  " + "endline = "  + issueLine4);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(4);
                             filePassed4 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine4 + "  " + "endline = "  + issueLine4);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("By default, many older XML processors allow specification of an external entity, a URI that is dereferenced and evaluated during XML processing. SAST tools can discover this issue by inspecting dependencies and configuration. DAST tools require additional manual steps to detect and exploit this issue. Manual testers need to be trained in how to test for XXE, as it not commonly tested as of 2017.");
@@ -425,13 +443,19 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a5":
+                            Integer issueLine5 = Integer.valueOf(issue.getLine());
+                            Integer startLine5 = issueLine5 - 3;   
                             if(repeted.contains(5) && filePassed5.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine5 + "  " + "endline = "  + issueLine5);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(5);
                             filePassed5 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine5 + "  " + "endline = "  + issueLine5);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("Access control weaknesses are common due to the lack of automated detection, and lack of effective functional testing by application developers. Access control detection is not typically amenable to automated static or dynamic testing. Manual testing is the best way to detect missing or ineffective access control, including HTTP method (GET vs PUT, etc), controller, direct object references, etc.");
@@ -439,13 +463,19 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a6":
+                            Integer issueLine6 = Integer.valueOf(issue.getLine());
+                            Integer startLine6 = issueLine6 - 3;   
                             if(repeted.contains(6) && filePassed6.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine6 + "  " + "endline = "  + issueLine6);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(6);
                             filePassed6 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine6 + "  " + "endline = "  + issueLine6);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("Security misconfiguration can happen at any level of an application stack, including the network services, platform, web server, application server, database, frameworks, custom code, and pre-installed virtual machines, containers, or storage. Automated scanners are useful for detecting misconfigurations, use of default accounts or configurations, unnecessary services, legacy options, etc.");
@@ -455,10 +485,10 @@ public final class DataAdapter {
                         case "owasp-a7":
                             Integer issueLine7 = Integer.valueOf(issue.getLine());
                             Integer startLine7 = issueLine7 - 3;
-                            if(repeted.contains(1) && filePassed7.equals(issue.getComponent())){
+                            if(repeted.contains(7) && filePassed7.equals(issue.getComponent())){
                                 item.add(issue.getComponent() + "  startLine =" + startLine7 + "  " + "endline = "  + issueLine7);
                                 item.add(tag);
-                                item.add("This kind issue has been already detected in another code's line. Therefore, it has already been explained ");
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
                                 results.add(item);
                                 break;
                             }
@@ -474,13 +504,19 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a8":
+                            Integer issueLine8 = Integer.valueOf(issue.getLine());
+                            Integer startLine8 = issueLine8 - 3;   
                             if(repeted.contains(8) && filePassed8.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine8 + "  " + "endline = "  + issueLine8);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(8);
                             filePassed8 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine8 + "  " + "endline = "  + issueLine8);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("Some tools can discover deserialization flaws, but human assistance is frequently needed to validate the problem. It is expected that prevalence data for deserialization flaws will increase as tooling is developed to help identify and address it.");
@@ -488,13 +524,19 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a9":
+                            Integer issueLine9 = Integer.valueOf(issue.getLine());
+                            Integer startLine9 = issueLine9 - 3;   
                             if(repeted.contains(9) && filePassed9.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine9 + "  " + "endline = "  + issueLine9);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(9);
                             filePassed9 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine9 + "  " + "endline = "  + issueLine9);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("Prevalence of this issue is very widespread. Component-heavy development patterns can lead to development teams not even understanding which components they use in their application or API, much less keeping them up to date. Some scanners such as retire.js help in detection, but determining exploitability requires additional effort.");
@@ -502,13 +544,19 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a10":
+                            Integer issueLine10 = Integer.valueOf(issue.getLine());
+                            Integer startLine10 = issueLine10 - 3;   
                             if(repeted.contains(10) && filePassed10.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine10 + "  " + "endline = "  + issueLine10);
+                                item.add(tag);
+                                item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(10);
                             filePassed10 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine10 + "  " + "endline = "  + issueLine10);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("Exploitation of insufficient logging and monitoring is the bedrock of nearly every major incident. Attackers rely on the lack of monitoring and timely response to achieve their goals without being detected. One strategy for determining if you have sufficient monitoring is to examine the logs following penetration testing. The testers’ actions should be recorded sufficiently to understand what damages they may have inflicted.");
