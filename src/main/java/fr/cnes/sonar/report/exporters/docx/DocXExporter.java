@@ -65,16 +65,15 @@ public class DocXExporter implements IExporter {
 
     private static final String IMPROVEMENTS_PLACEHOLDER = "$IMPROVEMENTS";
 
-    private static final String[] IMPROVEMENTS_HEADER = {"Owasp Type",
+     private static final String[] IMPROVEMENTS_HEADER = {"Owasp Type",
             "Threat Agents / Attack Vectors",
-            "Improvements",
-            "Base Score Metrics"};  
-
+            "Security Weakness",
+            "Impacts"};   
 
     private static final String[] OWASP_HEADER = {"File",
             "Owasp Type",
             "Owasp Description",
-            "Owasp Mitigation"};
+            "Owasp Prevention"}; 
 
     private static final String OWASP_PLACEHOLDER = "$OWASP";
 

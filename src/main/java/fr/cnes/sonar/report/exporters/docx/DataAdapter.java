@@ -335,40 +335,58 @@ public final class DataAdapter {
         String tagName = "?";
         // final List<String> listTags = new ArrayList<>();
         String issueName = "?";
+ 
         
-        String filePassed = new String();
+        //Control Strings
+        String filePassed1 = new String();
+        String filePassed2 = new String();
+        String filePassed3 = new String();
+        String filePassed4 = new String();
+        String filePassed5 = new String();
+        String filePassed6 = new String();
+        String filePassed7 = new String();
+        String filePassed8 = new String();
+        String filePassed9 = new String();
+        String filePassed10 = new String();
                
         //for(String tag1 : tags) {
             //for(Tag tag : report.getTags()){
-            for(Issue issue : report.getIssues()){
-
+            for(Issue issue : report.getIssues()){ 
 
                 //issueName = rule.getName();
                 for (String tag : issue.getTags()){
                     final List<String> item = new ArrayList<>();
-
+                    
 
                     switch(tag){
-                        case "owasp-a1":
-                            if(repeted.contains(1) && filePassed.equals(issue.getComponent())){
+                        case "owasp-a1": 
+                            Integer issueLine = Integer.valueOf(issue.getLine());
+                            Integer startLine = issueLine - 3;   
+                            if(repeted.contains(1) && filePassed1.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine + "  " + "endline = "  + issueLine);
+                                item.add(tag);
+                                item.add("This kind issue has been already detected in another code's line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(1);
-                            filePassed = issue.getComponent();
+                            filePassed1 = issue.getComponent();
+                             
+                            
 
-                            item.add(issue.getComponent());
+                            item.add(issue.getComponent() + "  startLine =" + startLine + "  " + "endline = "  + issueLine);
                             //item.add(tag1);
-                            item.add(tag);
+                            item.add(tag );
                             item.add("Injection flaws are very prevalent, particularly in legacy code. Injection vulnerabilities are often found in SQL, LDAP, XPath, or NoSQL queries, OS commands, XML parsers, SMTP headers, expression languages, and ORM queries. Injection flaws are easy to discover when examining code. Scanners and fuzzers can help attackers find injection flaws.");
                             item.add("Preventing injection requires keeping data separate from commands and queries. The preferred option is to use a safe API, which avoids the use of the interpreter entirely or provides a parameterized interface, or migrate to use Object Relational Mapping Tools (ORMs). Note: Even when parameterized, stored procedures can still introduce SQL injection if PL/SQL or T-SQL concatenates queries and data, or executes hostile data with EXECUTE IMMEDIATE or exec(). Use positive or “whitelist” server-side input validation. This is not a complete defense as many applications require special characters, such as text areas or APIs for mobile applications.  For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter. Note: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software.  Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.");
                             results.add(item);
                             break;
                         case "owasp-a2":
-                            if(repeted.contains(2) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(2) && filePassed2.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(2);
-                            filePassed = issue.getComponent();
+                            filePassed2 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -379,11 +397,11 @@ public final class DataAdapter {
                             break;
 
                         case "owasp-a3":
-                            if(repeted.contains(3) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(3) && filePassed3.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(3);
-                            filePassed = issue.getComponent();
+                            filePassed3 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -393,11 +411,11 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a4":
-                            if(repeted.contains(4) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(4) && filePassed4.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(4);
-                            filePassed = issue.getComponent();
+                            filePassed4 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -407,11 +425,11 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a5":
-                            if(repeted.contains(5) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(5) && filePassed5.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(5);
-                            filePassed = issue.getComponent();
+                            filePassed5 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -421,11 +439,11 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a6":
-                            if(repeted.contains(6) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(6) && filePassed6.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(6);
-                            filePassed = issue.getComponent();
+                            filePassed6 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -435,13 +453,20 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a7":
-                            if(repeted.contains(7) && filePassed.equals(issue.getComponent())){
+                            Integer issueLine7 = Integer.valueOf(issue.getLine());
+                            Integer startLine7 = issueLine7 - 3;
+                            if(repeted.contains(1) && filePassed7.equals(issue.getComponent())){
+                                item.add(issue.getComponent() + "  startLine =" + startLine7 + "  " + "endline = "  + issueLine7);
+                                item.add(tag);
+                                item.add("This kind issue has been already detected in another code's line. Therefore, it has already been explained ");
+                                results.add(item);
                                 break;
                             }
                             repeted.add(7);
-                            filePassed = issue.getComponent();
+                            filePassed7 = issue.getComponent();
 
-                            item.add(issue.getComponent());
+
+                            item.add(issue.getComponent() + "  startLine =" + startLine7  + "  " +  "endline = " + issueLine7);
                             //item.add(tag1);
                             item.add(tag);
                             item.add("XSS is the second most prevalent issue in the OWASP Top 10, and is found in around two thirds of all applications. Automated tools can find some XSS problems automatically, particularly in mature technologies such as PHP, J2EE / JSP, and ASP.NET.");
@@ -449,11 +474,11 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a8":
-                            if(repeted.contains(8) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(8) && filePassed8.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(8);
-                            filePassed = issue.getComponent();
+                            filePassed8 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -463,11 +488,11 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a9":
-                            if(repeted.contains(9) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(9) && filePassed9.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(9);
-                            filePassed = issue.getComponent();
+                            filePassed9 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -477,11 +502,11 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a10":
-                            if(repeted.contains(10) && filePassed.equals(issue.getComponent())){
+                            if(repeted.contains(10) && filePassed10.equals(issue.getComponent())){
                                 break;
                             }
                             repeted.add(10);
-                            filePassed = issue.getComponent();
+                            filePassed10 = issue.getComponent();
 
                             item.add(issue.getComponent());
                             //item.add(tag1);
@@ -529,6 +554,162 @@ public final class DataAdapter {
     public static List<List<String>> getImprovements(Report report) {
 
         final List<List<String>> results = new ArrayList<>();
+        List<Integer> repeted2 = new ArrayList<>();
+        List<String> devolver = new ArrayList<>();
+
+
+
+        for(Issue issue : report.getIssues()){
+
+                for (String tag : issue.getTags()){
+                    final List<String> item = new ArrayList<>();
+
+
+                    switch(tag){
+                        case "owasp-a1":
+                            if(repeted2.contains(1)){
+                                break;
+                            }
+                            repeted2.add(1);
+                            
+
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Exploitability: 3 ");
+                            item.add("Prevalence: 2 Detectability: 3");
+                            item.add("Technical: 3");
+
+                            results.add(item);
+                            break;
+                        case "owasp-a2":
+                            if(repeted2.contains(2)){
+                                break;
+                            }
+                            repeted2.add(2);
+                            
+                            //item.add(tag1);
+                            item.add(tag);
+                            item.add("Exploitability: 3 ");
+                            item.add("Prevalence: 2 Detectability: 2");
+                            item.add("Technical: 3");
+                            results.add(item);
+                            break;
+
+                        case "owasp-a3":
+                            if(repeted2.contains(3)){
+                                break;
+                            }
+                            repeted2.add(3);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 2 ");
+                            item.add("Prevalence: 3 Detectability   : 2");
+                            item.add("Technical: 3");
+                            results.add(item);
+                            break;
+                        case "owasp-a4":
+                            if(repeted2.contains(4)){
+                                break;
+                            }
+                            repeted2.add(4);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 2");
+                            item.add("Prevalence: 2 Detectability: 3");
+                            item.add("Technical: 3");
+                            results.add(item);
+                            break;
+                        case "owasp-a5":
+                            if(repeted2.contains(5)){
+                                break;
+                            }
+                            repeted2.add(5);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 2 ");
+                            item.add("Prevalence: 2 Detectability: 2");
+                            item.add("Technical: 3");
+                            results.add(item);
+                            break;
+                        case "owasp-a6":
+                            if(repeted2.contains(6)){
+                                break;
+                            }
+                            repeted2.add(6);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 3");
+                            item.add("Prevalence: 3 \n Detectability: 3");
+                            item.add("Technical: 2");
+                            results.add(item);
+                            break;
+                        case "owasp-a7":
+                            if(repeted2.contains(7)){
+                                break;
+                            }
+                            repeted2.add(7);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 3 ");
+                            item.add("Prevalence: 3   Detectability: 3");
+                                
+                            item.add("Technical: 2");
+                            results.add(item);
+                            break;
+                        case "owasp-a8":
+                            if(repeted2.contains(8)){
+                                break;
+                            }
+                            repeted2.add(8);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 1");
+                            item.add("Prevalence: 2 Detectability: 2");
+                            item.add("Technical: 3");
+                            results.add(item);
+                            break;
+                        case "owasp-a9":
+                            if(repeted2.contains(9)){
+                                break;
+                            }
+                            repeted2.add(9);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 2");
+                            item.add("Prevalence: 3 Detectability: 2");
+                            item.add("Technical: 2");
+                            results.add(item);
+                            break;
+                        case "owasp-a10":
+                            if(repeted2.contains(10)){
+                                break;
+                            }
+                            repeted2.add(10);
+                            
+
+                            item.add(tag);
+                            item.add("Exploitability: 2");
+                            item.add("Prevalence: 3 Detectability: 1");
+                            item.add("Technical: 2");
+                            results.add(item);
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+            }
+        return results;
+    }
+
+/*        final List<List<String>> results = new ArrayList<>();
 
         final String[] types = ISSUE_TYPES;
         final String[] severities = ISSUE_SEVERITIES;
@@ -725,45 +906,11 @@ public final class DataAdapter {
                 results.add(item);
                 }
 
-
-
-
-
-                
-        //for(String type : types) {
-          //  for (String severity : severities) {
-                // accumulator for the number of occurrences
-                // long nb = 0;
-                // // we sum all issues with a type and a severity
-                // for(Issue issue : report.getIssues()) {
-                //     if(issue.getType().equals(type) && issue.getSeverity().equals(severity)) {
-                //         nb++;
-                //     }
-                // }
-                // // we add it to the list
-                // final List<String> item = new ArrayList<>();
-
-                // //item.add(prueba);
-                // if(nb == 0){
-                //     item.add(type);
-                //     item.add(severity);
-                //     item.add("-");
-                //     item.add("-");
-                // }else {
-                //     item.add(type);
-                //     item.add(severity);
-                //     item.add(prueba2);
-                //     item.add(prueba);
-                //     //item.add(String.valueOf(nb));
-                // }
-
-                // add the whole line to the results
-                //results.add(item);
             }
         }
 
         return results;
-    }
+    }*/
 
 
     /**
