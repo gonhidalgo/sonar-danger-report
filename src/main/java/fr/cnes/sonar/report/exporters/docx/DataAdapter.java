@@ -369,6 +369,9 @@ public final class DataAdapter {
                                 results.add(item);
                                 break;
                             }
+                           /*  if(repeted.contains(1) && filePassed1.equals(issue.getComponent())){
+                                break;
+                            }*/
                             repeted.add(1);
                             filePassed1 = issue.getComponent();
                              
@@ -376,9 +379,9 @@ public final class DataAdapter {
 
                             item.add(issue.getComponent() + "  startLine =" + startLine1 + "  " + "endline = "  + issueLine1);
                             //item.add(tag1);
-                            item.add(tag );
+                            item.add(tag);
                             item.add("Injection flaws are very prevalent, particularly in legacy code. Injection vulnerabilities are often found in SQL, LDAP, XPath, or NoSQL queries, OS commands, XML parsers, SMTP headers, expression languages, and ORM queries. Injection flaws are easy to discover when examining code. Scanners and fuzzers can help attackers find injection flaws.");
-                            item.add("Preventing injection requires keeping data separate from commands and queries. The preferred option is to use a safe API, which avoids the use of the interpreter entirely or provides a parameterized interface, or migrate to use Object Relational Mapping Tools (ORMs). Note: Even when parameterized, stored procedures can still introduce SQL injection if PL/SQL or T-SQL concatenates queries and data, or executes hostile data with EXECUTE IMMEDIATE or exec(). Use positive or “whitelist” server-side input validation. This is not a complete defense as many applications require special characters, such as text areas or APIs for mobile applications.  For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter. Note: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software.  Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.");
+                            item.add("Preventing injection requires keeping data separate from commands and queries. The preferred option is to use a safe API, which avoids the use of the interpreter entirely or provides a parameterized interface, or migrate to use Object Relational Mapping Tools (ORMs). Even when parameterized, stored procedures can still introduce SQL injection if PL/SQL or T-SQL concatenates queries and data, or executes hostile data with EXECUTE IMMEDIATE or exec(). Use positive or “whitelist” server-side input validation. This is not a complete defense as many applications require special characters, such as text areas or APIs for mobile applications.  For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter. Note: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software.  Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection.");
                             results.add(item);
                             break;
                         case "owasp-a2":
@@ -485,13 +488,17 @@ public final class DataAdapter {
                         case "owasp-a7":
                             Integer issueLine7 = Integer.valueOf(issue.getLine());
                             Integer startLine7 = issueLine7 - 3;
-                            if(repeted.contains(7) && filePassed7.equals(issue.getComponent())){
+                           if(repeted.contains(7) && filePassed7.equals(issue.getComponent())){
                                 item.add(issue.getComponent() + "  startLine =" + startLine7 + "  " + "endline = "  + issueLine7);
                                 item.add(tag);
                                 item.add("This type of error has already been detected in this file but in another line. Therefore, it has already been explained ");
                                 results.add(item);
                                 break;
                             }
+
+                            /* if(repeted.contains(7) && filePassed7.equals(issue.getComponent())){
+                                break;
+                            }*/
                             repeted.add(7);
                             filePassed7 = issue.getComponent();
 

@@ -42,7 +42,7 @@ public class MarkdownExporter implements IExporter {
      * Name of the columns in volumes table
      */
     private static final String[] VOLUMES_HEADER = {StringManager.string("header.language"),
-            StringManager.string("header.number")};
+            "Code Lines Analysed"};
 
     /**
      * Start index of the sub array in the headers array for the the second table

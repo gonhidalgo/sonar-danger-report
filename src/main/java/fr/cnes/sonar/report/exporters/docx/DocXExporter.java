@@ -99,7 +99,7 @@ public class DocXExporter implements IExporter {
      * Name of the columns in volumes table
      */
     private static final String[] VOLUMES_HEADER = {StringManager.string("header.language"),
-            StringManager.string(HEADER_NUMBER)};
+            "Code Lines Analysed"};
     /**
      * Start index of the sub array in the headers array for the the second table
      */
