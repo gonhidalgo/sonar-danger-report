@@ -180,7 +180,7 @@
                 <version>${sonar-packaging-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <jarName>sonar-danger-report</jarName>
+                    <jarName>sonar-security-report</jarName>
                 </configuration>
             </plugin>
 
