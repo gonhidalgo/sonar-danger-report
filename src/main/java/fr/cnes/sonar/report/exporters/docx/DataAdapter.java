@@ -374,9 +374,6 @@ public final class DataAdapter {
                             }*/
                             repeted.add(1);
                             filePassed1 = issue.getComponent();
-                             
-                            
-
                             item.add(issue.getComponent() + "  startLine =" + startLine1 + "  " + "endline = "  + issueLine1);
                             //item.add(tag1);
                             item.add(tag);
@@ -606,12 +603,11 @@ public final class DataAdapter {
     }
 
 
-    public static List<List<String>> getImprovements(Report report) {
+    public static List<List<String>> getOwaspMetrics(Report report) {
 
         final List<List<String>> results = new ArrayList<>();
-        List<Integer> repeted2 = new ArrayList<>();
+        List<Integer> repeted = new ArrayList<>();
         List<String> devolver = new ArrayList<>();
-
 
 
         for(Issue issue : report.getIssues()){
@@ -622,10 +618,10 @@ public final class DataAdapter {
 
                     switch(tag){
                         case "owasp-a1":
-                            if(repeted2.contains(1)){
+                            if(repeted.contains(1)){
                                 break;
                             }
-                            repeted2.add(1);
+                            repeted.add(1);
                             
 
                             //item.add(tag1);
@@ -636,11 +632,12 @@ public final class DataAdapter {
 
                             results.add(item);
                             break;
+
                         case "owasp-a2":
-                            if(repeted2.contains(2)){
+                            if(repeted.contains(2)){
                                 break;
                             }
-                            repeted2.add(2);
+                            repeted.add(2);
                             
                             //item.add(tag1);
                             item.add(tag);
@@ -651,10 +648,10 @@ public final class DataAdapter {
                             break;
 
                         case "owasp-a3":
-                            if(repeted2.contains(3)){
+                            if(repeted.contains(3)){
                                 break;
                             }
-                            repeted2.add(3);
+                            repeted.add(3);
                             
 
                             item.add(tag);
@@ -664,10 +661,10 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a4":
-                            if(repeted2.contains(4)){
+                            if(repeted.contains(4)){
                                 break;
                             }
-                            repeted2.add(4);
+                            repeted.add(4);
                             
 
                             item.add(tag);
@@ -677,10 +674,10 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a5":
-                            if(repeted2.contains(5)){
+                            if(repeted.contains(5)){
                                 break;
                             }
-                            repeted2.add(5);
+                            repeted.add(5);
                             
 
                             item.add(tag);
@@ -690,10 +687,10 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a6":
-                            if(repeted2.contains(6)){
+                            if(repeted.contains(6)){
                                 break;
                             }
-                            repeted2.add(6);
+                            repeted.add(6);
                             
 
                             item.add(tag);
@@ -703,10 +700,10 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a7":
-                            if(repeted2.contains(7)){
+                            if(repeted.contains(7)){
                                 break;
                             }
-                            repeted2.add(7);
+                            repeted.add(7);
                             
 
                             item.add(tag);
@@ -717,10 +714,10 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a8":
-                            if(repeted2.contains(8)){
+                            if(repeted.contains(8)){
                                 break;
                             }
-                            repeted2.add(8);
+                            repeted.add(8);
                             
 
                             item.add(tag);
@@ -730,10 +727,10 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a9":
-                            if(repeted2.contains(9)){
+                            if(repeted.contains(9)){
                                 break;
                             }
-                            repeted2.add(9);
+                            repeted.add(9);
                             
 
                             item.add(tag);
@@ -743,10 +740,10 @@ public final class DataAdapter {
                             results.add(item);
                             break;
                         case "owasp-a10":
-                            if(repeted2.contains(10)){
+                            if(repeted.contains(10)){
                                 break;
                             }
-                            repeted2.add(10);
+                            repeted.add(10);
                             
 
                             item.add(tag);

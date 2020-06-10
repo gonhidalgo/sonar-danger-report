@@ -63,9 +63,9 @@ public class DocXExporter implements IExporter {
     private static final String VOLUME_TABLE_PLACEHOLDER2 = "$VOLUME2";
 
 
-    private static final String IMPROVEMENTS_PLACEHOLDER = "$IMPROVEMENTS";
+    private static final String METRICS_PLACEHOLDER = "$METRICS";
 
-     private static final String[] IMPROVEMENTS_HEADER = {"Owasp Type",
+     private static final String[] METRICS_HEADER = {"Owasp Type",
             "Threat Agents / Attack Vectors",
             "Security Weakness",
             "Impacts"};   
@@ -120,6 +120,7 @@ public class DocXExporter implements IExporter {
      * @throws IOException ...
      * @throws XmlException ...
      */
+    
     @Override
     public File export(final Object data, final String path, final String filename)
             throws BadExportationDataTypeException, OpenXML4JException, IOException, XmlException {
@@ -177,15 +178,15 @@ public class DocXExporter implements IExporter {
 
 
 
-            final List<String> improvementsHeader = new ArrayList<>(Arrays.asList(IMPROVEMENTS_HEADER));
-            final List<List<String>> improvements = DataAdapter.getImprovements(report);
-            DocXTools.fillTable(document, improvementsHeader, improvements, IMPROVEMENTS_PLACEHOLDER);
+            final List<String> metricsHeader = new ArrayList<>(Arrays.asList(METRICS_HEADER));
+            final List<List<String>> metrics = DataAdapter.getOwaspMetrics(report);
+            DocXTools.fillTable(document, metricsHeader, metrics, METRICS_PLACEHOLDER);
 
             final List<String> tagHeader = new ArrayList<>(Arrays.asList(OWASP_HEADER));
             final List<List<String>> tags = DataAdapter.getTagsDoc(report);
             DocXTools.fillTable(document, tagHeader, tags, OWASP_PLACEHOLDER);
 
-            System.out.println(tags);
+        
 
 
 

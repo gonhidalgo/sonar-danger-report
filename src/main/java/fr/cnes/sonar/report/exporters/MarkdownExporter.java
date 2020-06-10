@@ -73,9 +73,9 @@ public class MarkdownExporter implements IExporter {
 
     private static final String VOLUMES_TABLE_PLACEHOLDER2 = "$VOLUME2";
 
-    private static final String IMPROVEMENTS_PLACEHOLDER = "$IMPROVEMENTS";
+    private static final String METRICS_PLACEHOLDER = "$METRICS";
 
-    private static final String[] IMPROVEMENTS_HEADER = {"Owasp Type",
+    private static final String[] METRICS_HEADER = {"Owasp Type",
             "Threat Agents / Attack Vectors",
             "Security Weakness",
             "Impacts"};   
@@ -155,11 +155,12 @@ public class MarkdownExporter implements IExporter {
             output = output.replace(VOLUMES_TABLE_PLACEHOLDER2, volumeTable2);
 
 
+            
+            final List<String> metricsHeader = new ArrayList<>(Arrays.asList(METRICS_HEADER));
+            final List<List<String>> metrics = DataAdapter.getOwaspMetrics(report);
+            final String metricsTable = generateMDTable(metricsHeader, metrics);      
+            output = output.replace(METRICS_PLACEHOLDER, metricsTable);
 
-            final List<String> improvementsHeader = new ArrayList<>(Arrays.asList(IMPROVEMENTS_HEADER));
-            final List<List<String>> improvements = DataAdapter.getImprovements(report);
-            final String improvementsTable = generateMDTable(improvementsHeader, improvements);      
-            output = output.replace(IMPROVEMENTS_PLACEHOLDER, improvementsTable);
 
             final List<String> owaspHeader = new ArrayList<>(Arrays.asList(OWASP_HEADER));
             final List<List<String>> owasps = DataAdapter.getTagsDoc(report);
