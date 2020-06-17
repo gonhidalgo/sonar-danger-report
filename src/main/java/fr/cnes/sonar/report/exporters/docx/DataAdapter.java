@@ -625,7 +625,7 @@ public final class DataAdapter {
                             
 
                             //item.add(tag1);
-                            item.add(tag);
+                            item.add(tag + ": Injection");
                             item.add("Exploitability: 3 ");
                             item.add("Prevalence: 2 Detectability: 3");
                             item.add("Technical: 3");
@@ -640,7 +640,7 @@ public final class DataAdapter {
                             repeted.add(2);
                             
                             //item.add(tag1);
-                            item.add(tag);
+                            item.add(tag + ": Broken Authentication");
                             item.add("Exploitability: 3 ");
                             item.add("Prevalence: 2 Detectability: 2");
                             item.add("Technical: 3");
@@ -654,7 +654,7 @@ public final class DataAdapter {
                             repeted.add(3);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": Sensitive Data Exposure");
                             item.add("Exploitability: 2 ");
                             item.add("Prevalence: 3 Detectability   : 2");
                             item.add("Technical: 3");
@@ -667,7 +667,7 @@ public final class DataAdapter {
                             repeted.add(4);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": XML External Entities (XXE)");
                             item.add("Exploitability: 2");
                             item.add("Prevalence: 2 Detectability: 3");
                             item.add("Technical: 3");
@@ -680,7 +680,7 @@ public final class DataAdapter {
                             repeted.add(5);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": Broken Acces Control");
                             item.add("Exploitability: 2 ");
                             item.add("Prevalence: 2 Detectability: 2");
                             item.add("Technical: 3");
@@ -693,7 +693,7 @@ public final class DataAdapter {
                             repeted.add(6);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": Security Misconfiguration");
                             item.add("Exploitability: 3");
                             item.add("Prevalence: 3 \n Detectability: 3");
                             item.add("Technical: 2");
@@ -706,7 +706,7 @@ public final class DataAdapter {
                             repeted.add(7);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": Cross-Site Scripting (XSS)");
                             item.add("Exploitability: 3 ");
                             item.add("Prevalence: 3   Detectability: 3");
                                 
@@ -720,7 +720,7 @@ public final class DataAdapter {
                             repeted.add(8);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": Insecure Deserialization");
                             item.add("Exploitability: 1");
                             item.add("Prevalence: 2 Detectability: 2");
                             item.add("Technical: 3");
@@ -733,7 +733,7 @@ public final class DataAdapter {
                             repeted.add(9);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": Components with Known Vulnerabilities");
                             item.add("Exploitability: 2");
                             item.add("Prevalence: 3 Detectability: 2");
                             item.add("Technical: 2");
@@ -746,7 +746,7 @@ public final class DataAdapter {
                             repeted.add(10);
                             
 
-                            item.add(tag);
+                            item.add(tag + ": Insufficient Logging and Monitoring");
                             item.add("Exploitability: 2");
                             item.add("Prevalence: 3 Detectability: 1");
                             item.add("Technical: 2");
